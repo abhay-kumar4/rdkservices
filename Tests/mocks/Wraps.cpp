@@ -1,9 +1,12 @@
 #include <stdarg.h>
 #include <syslog.h>
 #include "Wraps.h"
+#include <iostream>
+using namespace std;
 
 extern "C" int __wrap_system(const char* command)
-{
+{   
+    std::cout << "__wrap_system" << std::endl;
     return Wraps::getInstance().system(command);
 }
 

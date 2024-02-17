@@ -14,6 +14,9 @@
 #include "UtilsJsonRpc.h"
 #include "UtilsIarm.h"
 
+#include<iostream>
+using namespace std;
+
 #define API_VERSION_NUMBER_MAJOR 1
 #define API_VERSION_NUMBER_MINOR 2
 #define API_VERSION_NUMBER_PATCH 2
@@ -480,6 +483,7 @@ namespace Plugin {
             !name.empty() && !path.empty() &&
             std::regex_match(name, std::regex(deviceSpecificRegexBin(), std::regex_constants::icase)) == true)
         {
+            std::cout<< " updateFirmware inside if " <<std::endl;
             char buff[1000];
             size_t n = sizeof(buff);
             int size = snprintf(buff, n,
@@ -488,6 +492,7 @@ namespace Plugin {
                     path.c_str(),
                     name.c_str(),
                     0);
+            std::cout<< " updateFirmware inside if -> buff " <<buff << std::endl;
             if (size > 0 && (size_t)size < n)
             {
                 int rc = runScript(buff);

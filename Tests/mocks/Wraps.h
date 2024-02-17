@@ -1,8 +1,8 @@
 #pragma once
-
+#include <iostream>
 #include <stdio.h>
 #include "wpa_ctrl_mock.h"
-#include <secure_wrappermock.h>
+//#include <secure_wrappermock.h>
 
 class WrapsImpl {
 public:
@@ -26,6 +26,7 @@ class Wraps {
 public:
     static Wraps& getInstance()
     {
+        std::cout<<"Wraps& getInstance" << std::endl;
         static Wraps instance;
         return instance;
     }
@@ -34,6 +35,7 @@ public:
 
     static int system(const char* command)
     {
+        std::cout<<"Wraps& system" << std::endl;
         return getInstance().impl->system(command);
     }
 

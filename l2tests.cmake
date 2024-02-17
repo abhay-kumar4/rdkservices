@@ -76,6 +76,7 @@ foreach (file ${FAKE_HEADERS})
 endforeach ()
 
 add_compile_options(-Wall -Werror)
+add_link_options(-Wl,-wrap,system)
 
 
 add_definitions(

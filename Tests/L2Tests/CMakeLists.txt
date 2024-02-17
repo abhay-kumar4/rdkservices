@@ -31,12 +31,14 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(googletest)
 
 add_executable(${PROJECT_NAME}
+        ../mocks/Wraps.cpp
         L2testController.cpp
         L2testController.h
         Module.cpp
         )
 
 set_source_files_properties(
+        ../mocks/Wraps.cpp
         L2testController.cpp
         L2testController.h
         Module.cpp
